@@ -39,4 +39,5 @@ public class RandomObjects : MonoBehaviour
     		yield return new WaitForSeconds(spawnWait);
     	}
     }
+
 }
