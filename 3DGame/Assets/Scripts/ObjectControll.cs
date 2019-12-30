@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,5 +11,6 @@ public class ObjectControll : MonoBehaviour
     void Update()
     {
         this.gameObject.transform.Translate(Xspeed, Yspeed, Zspeed);
+        //Time.timeScale += 0.1f;
     }
 }

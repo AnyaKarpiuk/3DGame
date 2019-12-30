@@ -31,8 +31,11 @@ public class DestroyObjects : MonoBehaviour
     				Destroy(bc.gameObject);
     				destroyedObjects += 1;
     				setCountText();
+                    FindObjectOfType<AudioManager>().Play("Destroy");
     			}
+                FindObjectOfType<AudioManager>().Play("Destroy");
     		}
+            FindObjectOfType<AudioManager>().Play("Destroy");
     	}
     }
 
