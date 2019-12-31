@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,13 +9,13 @@ public class DestroyObjects : MonoBehaviour
 	public Text destroyedObjectsCount;
 
 
-	void Start()
+	public void Start()
 	{
 		destroyedObjects = 0;
 		setCountText();
 	}
 
-    void Update()
+    public void Update()
     {
     	//if the player click on any of the objects it's destroyed
     	if (Input.GetMouseButtonDown(0))
@@ -29,13 +29,11 @@ public class DestroyObjects : MonoBehaviour
     			if(bc != null && bc.gameObject.tag == "food")
     			{
     				Destroy(bc.gameObject);
+                    FindObjectOfType<AudioManager>().Play("Destroy");
     				destroyedObjects += 1;
     				setCountText();
-                    FindObjectOfType<AudioManager>().Play("Destroy");
     			}
-                FindObjectOfType<AudioManager>().Play("Destroy");
     		}
-            FindObjectOfType<AudioManager>().Play("Destroy");
     	}
     }
 
@@ -45,4 +43,5 @@ public class DestroyObjects : MonoBehaviour
     {
     	destroyedObjectsCount.text = destroyedObjects.ToString();
     }
+
 }

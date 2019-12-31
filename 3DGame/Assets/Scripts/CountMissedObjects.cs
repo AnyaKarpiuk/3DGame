@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CountMissedObjects : MonoBehaviour
 {
@@ -12,13 +13,10 @@ public class CountMissedObjects : MonoBehaviour
 	public Image caloriesBar;
 	public float startCal = 100;
 
-    public GameObject losingScreen;
-
 	public void Start() 
 	{
 		calories = 0;
 		SetCountText();
-        losingScreen.SetActive(false);
 	}
 
     void OnTriggerEnter(Collider c)
@@ -33,6 +31,7 @@ public class CountMissedObjects : MonoBehaviour
     		calories += 400;
     		c.gameObject.SetActive(false);
     		SetCountText();
+            sound();
 
             //display game over screen when the player exceet 4000cal
             if (calories > 3800)
@@ -42,13 +41,20 @@ public class CountMissedObjects : MonoBehaviour
     	}
     }
 
-    void SetCountText() {
+    //text that displays missed object's calories
+    public void SetCountText() {
     	caloriesCount.text = calories.ToString() + " cal";
     }
 
     //game over screen display
     public void gameOver()
     {
-        losingScreen.SetActive(true);
+        SceneManager.LoadScene(2);
+    }
+
+    public void sound()
+    {
+
+        FindObjectOfType<AudioManager>().Play("Sound");
     }
 }
