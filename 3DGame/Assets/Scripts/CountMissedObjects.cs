@@ -31,7 +31,6 @@ public class CountMissedObjects : MonoBehaviour
     		calories += 400;
     		c.gameObject.SetActive(false);
     		SetCountText();
-            sound();
 
             //display game over screen when the player exceet 4000cal
             if (calories > 3800)
@@ -52,9 +51,4 @@ public class CountMissedObjects : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void sound()
-    {
-
-        FindObjectOfType<AudioManager>().Play("Sound");
-    }
 }

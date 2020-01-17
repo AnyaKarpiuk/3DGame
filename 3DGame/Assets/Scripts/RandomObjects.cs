@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class RandomObjects : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class RandomObjects : MonoBehaviour
     void Start() 
     {
     	StartCoroutine(wait());
-        FindObjectOfType<AudioManager>().Play("Background");
     }
 
     void Update()

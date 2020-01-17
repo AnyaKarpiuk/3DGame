@@ -5,15 +5,8 @@ using UnityEngine.UI;
 
 public class DestroyObjects : MonoBehaviour
 {
-	public int destroyedObjects;
-	public Text destroyedObjectsCount;
 
-
-	public void Start()
-	{
-		destroyedObjects = 0;
-		setCountText();
-	}
+    public GameObject effect;
 
     public void Update()
     {
@@ -28,20 +21,14 @@ public class DestroyObjects : MonoBehaviour
     			BoxCollider bc = hit.collider as BoxCollider;
     			if(bc != null && bc.gameObject.tag == "food")
     			{
+                    //add destroy effect on each destroyed object 
+                    GameObject effectInst = (GameObject)Instantiate(effect, transform.position, transform.rotation);
+                    Destroy(effectInst, 2f);
+
     				Destroy(bc.gameObject);
-                    FindObjectOfType<AudioManager>().Play("Destroy");
-    				destroyedObjects += 1;
-    				setCountText();
     			}
     		}
     	}
-    }
-
-
-    //display a number of destroyed objects on the screen
-    void setCountText()
-    {
-    	destroyedObjectsCount.text = destroyedObjects.ToString();
     }
 
 }
