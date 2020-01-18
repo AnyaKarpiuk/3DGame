@@ -21,7 +21,7 @@ public class CountDestroyedObjects : MonoBehaviour
 
     public void Update()
     {
-    	//if the player click on any of the objects the number of destroyed objects id displayed
+    	//if the player click on any of the objects the number of destroyed objects is displayed
     	if (Input.GetMouseButtonDown(0))
     	{
     		RaycastHit hit;
@@ -33,7 +33,10 @@ public class CountDestroyedObjects : MonoBehaviour
     			if(bc != null && bc.gameObject.tag == "food")
     			{
     				destroyedObjects += 1;
-    				setCountText();		
+    				setCountText();
+
+
+                    FindObjectOfType<AudioManager>().Play("Destroy");		
     			}
 
     			//display the best result 
@@ -42,6 +45,8 @@ public class CountDestroyedObjects : MonoBehaviour
     				PlayerPrefs.SetInt("BestResult", destroyedObjects);
     				bestResult.text = "Best result: " + destroyedObjects.ToString();
     			}
+
+                FindObjectOfType<AudioManager>().Play("Destroy");   
     		}
     	}
     }
