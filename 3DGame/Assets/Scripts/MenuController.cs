@@ -33,6 +33,7 @@ public class MenuController : MonoBehaviour
 
     public void tutorialButton()
     {
+        SceneManager.LoadScene(3);
         FindObjectOfType<AudioManager>().Play("Button");
     }
 }

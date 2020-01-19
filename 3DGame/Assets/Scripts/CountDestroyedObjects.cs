@@ -33,10 +33,7 @@ public class CountDestroyedObjects : MonoBehaviour
     			if(bc != null && bc.gameObject.tag == "food")
     			{
     				destroyedObjects += 1;
-    				setCountText();
-
-
-                    FindObjectOfType<AudioManager>().Play("Destroy");		
+    				setCountText();	
     			}
 
     			//display the best result 
@@ -45,8 +42,6 @@ public class CountDestroyedObjects : MonoBehaviour
     				PlayerPrefs.SetInt("BestResult", destroyedObjects);
     				bestResult.text = "Best result: " + destroyedObjects.ToString();
     			}
-
-                FindObjectOfType<AudioManager>().Play("Destroy");   
     		}
     	}
     }
